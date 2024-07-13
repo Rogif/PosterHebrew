@@ -73,6 +73,21 @@ function draw() {
       }
     }
   }
-
-
 }
+
+function keyPressed() {
+  if (key === 's') {
+    console.log('saving');
+    // Scale factor, adjust as needed
+    let scaleFactor = 3;
+    // Temporarily resize canvas
+    resizeCanvas(width / scaleFactor, height / scaleFactor);
+    // Save the canvas
+    saveCanvas('myCanvas', 'png');
+    // Optionally, resize back to original dimensions if needed
+    resizeCanvas(width, height);
+  }
+}
+
+
+
