@@ -9,11 +9,16 @@ let tileH = height / tilesY;
 let bri_values = new Array(tilesX).fill(0).map(() => new Array(tilesY).fill(0));;
 
 function setup() {
-  createCanvas(width, height);
+  let canvas = createCanvas(width, height);
+  let x = (windowWidth - width) / 2;
+  let y = (windowHeight - height) / 2;
+  canvas.position(x, y);
   background(0);
   ontext = loadImage('ontext.jpg', (img) => readBrightnessValues(img));
   base = loadImage('base.png');
+  let density = pixelDensity();
 
+  pixelDensity(4);
 
   noStroke();
   fill(0);
@@ -79,7 +84,6 @@ function keyPressed() {
   if (key === 's') {
     console.log('saving');
     // Scale factor, adjust as needed
-    let scaleFactor = 3;
     // Temporarily resize canvas
     // Save the canvas
     saveCanvas('myCanvas', 'png');
